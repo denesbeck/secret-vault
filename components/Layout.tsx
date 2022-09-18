@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <>
             <div className='relative flex h-screen w-screen overflow-hidden'>
-                <div ref={ref} className='absolute top-0 left-0 h-[120%] w-[120%]'>
+                <div ref={ref} className='absolute top-0 left-0 h-[120%] w-[120%] animate-textFocus'>
                     <Image src={mountain} alt='main_background' layout='fill' />
                 </div>
                 <div id='container' className='absolute top-0 left-0 flex h-full w-full flex-col items-center overflow-y-auto'>

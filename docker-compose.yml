@@ -1,19 +1,14 @@
 version: '3.8'
 services:
     web:
+        hostname: secret-vault-web
         build: .
         ports:
             - '3000:3000'
-        environment:
-            - PG_HOST=secret-vault-postgres-1
-            - PG_PORT=5432
-            - PG_DATABASE=postgres
-            - PG_USER=postgres
-            - PG_PASSWORD=Pass!2022
-            - AES_KEY=AES!2022
-            - SECRET_PREFIX=00000001
-            - ENV_PREFIX=00000002
+        env_file:
+            - .env
     postgres:
+        hostname: secret-vault-postgres
         image: postgres
         ports:
             - '5432:5432'
@@ -25,6 +20,7 @@ services:
             - ./sql/insertScripts.sql:/docker-entrypoint-initdb.d/insertScripts.sql
             - ./postgres_data/:/var/lib/postgresql/data
     pgadmin:
+        hostname: secret-vault-pgadmin
         image: dpage/pgadmin4
         ports:
             - '5050:80'

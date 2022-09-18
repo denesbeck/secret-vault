@@ -7,7 +7,7 @@
         "build": "next build",
         "dev": "next dev",
         "test": "jest --coverage",
-        "docker-compose": "docker compose up -d && chmod -R /postgres_data",
+        "docker-compose": "docker compose up -d && chmod -R 777 postgres_data",
         "reset-docker": "bash ./scripts/reset-docker.sh"
     },
     "dependencies": {

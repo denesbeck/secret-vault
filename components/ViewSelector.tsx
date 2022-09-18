@@ -16,7 +16,7 @@ const ViewSelector = ({ currentView, updateView }: ViewSelectorProps) => {
         <div className='relative'>
             <button
                 onClick={() => setMenuVisible(true)}
-                className={`flex h-max w-[14rem] rounded bg-slate-800/20 py-2 px-2 text-slate-200 outline-none outline-offset-2 ring-2 ring-slate-200 hover:ring-blue-300 focus-visible:outline-blue-300 ${
+                className={`flex h-max w-[14rem] animate-slideInFromBottom rounded bg-slate-800/20 py-2 px-2 text-slate-200 outline-none outline-offset-2 ring-2 ring-slate-200 hover:ring-blue-300 focus-visible:outline-blue-300 ${
                     menuVisible && 'outline-blue-300 ring-2'
                 }`}
             >
