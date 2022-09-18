@@ -1,0 +1,20 @@
+.notification-info {
+    background-color: #93c5fd !important;
+}
+
+.notification-success {
+    background-color: #14b8a6 !important;
+}
+
+.notification-warning {
+    background-color: #fb923c !important;
+}
+
+.notification-error {
+    background-color: #be185d !important;
+}
+
+.notification {
+    box-shadow: none !important;
+    opacity: 1;
+}

@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: secret-vault-deploy
+    labels:
+        app: secret-vault
+        env: development
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: secret-vault
+            env: development
+    template:
+        metadata:
+            labels:
+                app: secret-vault
+                env: development
+        spec:
+            containers:
+                - name: secret-vault-web
+                  image: icr.io/denesbeck/secret-vault_web
+                  ports:
+                      - containerPort: 3000
+                  env:
+                      - name: PG_CONN_STRING
+                        valueFrom:
+                            secretKeyRef:
+                                name: secret-vault-secret
+                                key: pg-conn-string
+                      - name: AES_KEY
+                        valueFrom:
+                            secretKeyRef:
+                                name: secret-vault-secret
+                                key: aes-key
+                      - name: SECRET_PREFIX
+                        valueFrom:
+                            secretKeyRef:
+                                name: secret-vault-secret
+                                key: secret-prefix
+                      - name: ENV_PREFIX
+                        valueFrom:
+                            secretKeyRef:
+                                name: secret-vault-secret
+                                key: env-prefix
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: secret-vault-svc
+spec:
+    type: LoadBalancer
+    ports:
+        - port: 3000
+          targetPort: 3000
+          nodePort: 30000
+          protocol: TCP
+    selector:
+        app: secret-vault
+        env: development

@@ -1,0 +1,11 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+ <title>Drawing</title>
+
+ <g>
+  <title>Layer 1</title>
+  <path stroke-width="0" opacity="0.9" id="svg_1" d="m137.99667,378.06841l116.00001,-242.99997l116.00001,242.99997l-232.00002,0z" stroke="#000" fill="#1f2937"/>
+  <path stroke-width="0" opacity="0.8" id="svg_2" d="m61.83334,378.27467l73.00001,-137.00001l73.00001,137.00001l-146.00001,0z" stroke="#000" fill="#4b5563"/>
+  <path stroke-width="0" opacity="0.9" id="svg_4" d="m252.16667,377.78814l93,-190.00001l93,190.00001l-186,0z" stroke="#000" fill="#4b5563"/>
+  <ellipse opacity="0.1" id="svg_7" cy="198.22481" cx="344.88668" stroke="#000" fill="#444444"/>
+ </g>
+</svg>

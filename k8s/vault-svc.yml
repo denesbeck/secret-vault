@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: vault-svc
+spec:
+    selector:
+        app.kubernetes.io/instance: vault
+    type: LoadBalancer
+    ports:
+        - port: 8200
+          targetPort: 8200
+          nodePort: 30002
+          protocol: TCP
