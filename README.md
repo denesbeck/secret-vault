@@ -20,8 +20,8 @@ Install [Node.js](https://nodejs.org/en/).
 Create a `.env` file in your root folder:
 
 ```
-PG_CONN_STRING= # for docker compose use postgres://postgres:Pass!2022@secret-vault-postgres:5432/postgres in case of containerized web app
-                # postgres://postgres:Pass!2022@localhost:5432/postgres
+PG_CONN_STRING= # for docker compose use postgres://postgres:Pass!2022@secret-vault-postgres:5432/postgres
+                # if running the web app locally with containerized postgres instance use postgres://postgres:Pass!2022@localhost:5432/postgres
 
 AES_KEY= # for docker compose use a random string
 
