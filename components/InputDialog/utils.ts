@@ -12,7 +12,7 @@ export const validateInputs = (inputValues: SecretInputValues) => {
     ]
 
     props.forEach((input) => {
-        if ((!inputValues[input[0] as keyof SecretInputValues] as unknown as string).length) {
+        if (!(inputValues[input[0] as keyof SecretInputValues] as unknown as string).length) {
             NotificationManager.error(`Please enter ${input[1]}.`)
             result = false
         }
