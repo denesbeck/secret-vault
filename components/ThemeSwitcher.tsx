@@ -3,16 +3,24 @@ import { useEffect } from 'react'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 const ThemeSwitcher = () => {
+    const [mounted, setMounted] = useState(false)
     const { theme, setTheme, systemTheme } = useTheme()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     useEffect(() => {
         if (theme === 'system' && systemTheme) setTheme(systemTheme)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
+    if (!mounted) {
+        return null
+    }
 
-    if (typeof window === 'undefined') return null
+    const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
+    
     return (
         <div className='flex h-auto items-center'>
             <button
