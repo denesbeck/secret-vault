@@ -60,7 +60,7 @@ const TransitionedTableRow = ({ rowData }: TransitionedTableRowProps) => {
             {rowMap.map((row, index: number) => (
                 <div
                     key={index}
-                    className='group grid grid-cols-2 py-0.5 px-4 even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600 dark:even:bg-opacity-10 dark:hover:bg-gray-600 dark:hover:text-white'
+                    className='group grid grid-cols-2 py-0.5 px-4 even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600/10 dark:hover:bg-gray-600 dark:hover:text-white'
                 >
                     <div className='font-medium uppercase tracking-wider text-slate-600 group-hover:text-slate-300 dark:text-slate-300'>
                         {row.label}

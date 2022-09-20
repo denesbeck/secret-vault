@@ -35,7 +35,7 @@ const DataTable = ({ headers, data }: DataTableProps) => {
                         data.map((row: SecretSchema, index: number) => (
                             <tr
                                 key={index}
-                                className={`even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600 dark:even:bg-opacity-10 dark:hover:bg-gray-600 dark:hover:text-white`}
+                                className={`even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600/10 dark:hover:bg-gray-600 dark:hover:text-white`}
                             >
                                 <td className='whitespace-nowrap px-6 py-1.5'>{index + 1}</td>
                                 <td className='whitespace-nowrap px-6 py-1.5'>{sliceString(row.name, 20)}</td>

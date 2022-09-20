@@ -78,7 +78,7 @@ const ViewTable = ({ data, currentView }: ViewTableProps) => {
                         data.map((row: any, index: number) => (
                             <tr
                                 key={index}
-                                className={`group even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600 dark:even:bg-opacity-10 dark:hover:bg-gray-600 dark:hover:text-white`}
+                                className={`group even:bg-slate-300 hover:bg-slate-600 hover:text-white dark:even:bg-blue-600/10 dark:hover:bg-gray-600 dark:hover:text-white`}
                             >
                                 {(VIEW_OBJECTS[currentView as keyof VIEW_OBJECTS_TYPE] as VIEW_METADATA_TYPE).columns.map((column: any) => {
                                     if (column.name === 'environments') return environments(column.name, row)
