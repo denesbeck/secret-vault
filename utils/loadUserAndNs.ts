@@ -6,22 +6,22 @@ export const loadUserAndNs = async () => {
         return {
             name: 'John Doe',
             email: 'john.doe@email.com',
-            bluegroups: ['SV_WS01', 'SV_WS02', 'SV_WS03', 'SV_WS04', 'SV_WS05'],
+            accessProfiles: ['SV_WS01', 'SV_WS02', 'SV_WS03', 'SV_WS04', 'SV_WS05'],
         }
     }
     const user = await fetchUser()
 
-    if (!user.bluegroups.length)
+    if (!user.accessProfiles.length)
         return {
             props: { isAuthorized: false },
         }
 
-    // fetch namespace data based on the user's bluegroups
+    // fetch namespace data based on the user's accessProfiles
     const fetchNamespaces = async () => {
         let response
         try {
-            response = await pgPool.query('SELECT uuid, name FROM secret_vault.namespaces WHERE bluegroup = ANY($1::text[]);', [
-                user.bluegroups,
+            response = await pgPool.query('SELECT uuid, name FROM secret_vault.namespaces WHERE accessProfile = ANY($1::text[]);', [
+                user.accessProfiles,
             ])
         } catch (error: unknown) {
             console.error(error)
@@ -32,7 +32,7 @@ export const loadUserAndNs = async () => {
     }
     const namespaces = await fetchNamespaces()
 
-    // in production if a bluegroup exists, the namespace should be also registered in the app's db
+    // in production if a accessProfile exists, the namespace should be also registered in the app's db
     // the below if statement written for non-prod special cases
     if (!namespaces.length) {
         return {

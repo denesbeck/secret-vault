@@ -6,9 +6,9 @@ export default async function namespaces(req: NextApiRequest, res: NextApiRespon
     if (req.method === 'POST') {
         let response
         try {
-            response = await pgPool.query('INSERT INTO secret_vault.namespaces (name, bluegroup) VALUES ($1, $2) RETURNING *;', [
+            response = await pgPool.query('INSERT INTO secret_vault.namespaces (name, accessProfile) VALUES ($1, $2) RETURNING *;', [
                 req.body.name,
-                req.body.blueGroup,
+                req.body.accessProfile,
             ])
         } catch (error: unknown) {
             if ((error as DatabaseError).code === '23505') return res.status(400).send('Namespace name must be unique!')

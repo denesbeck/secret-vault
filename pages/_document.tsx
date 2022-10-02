@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head />
-                <body className='bg-zink-900'>
+                <body>
                     <Main />
                     <div id='myPortal' />
                     <NextScript />

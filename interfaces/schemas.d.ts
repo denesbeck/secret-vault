@@ -1,7 +1,7 @@
 export type UserSchema = {
     name: string
     email: string
-    bluegroups: string[]
+    accessProfiles: string[]
 }
 
 export interface NamespaceSchema {

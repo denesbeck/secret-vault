@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS secret_vault.namespaces
 (
     uuid uuid NOT NULL DEFAULT uuid_generate_v4(),
     name character varying(32) NOT NULL,
-    bluegroup character varying NOT NULL,
+    accessProfile character varying NOT NULL,
     inserted timestamp with time zone NOT NULL,
     CONSTRAINT namespaces_pkey PRIMARY KEY (uuid),
     CONSTRAINT namespace_unique UNIQUE (name)

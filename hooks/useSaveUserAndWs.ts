@@ -7,7 +7,7 @@ const useSaveUserAndWs = (isAuthorized: boolean, user: UserSchema, namespaces: N
 
     useEffect(() => {
         dispatch({ type: 'IS_AUTHORIZED', payload: isAuthorized || false })
-        if (!state.user) dispatch({ type: 'USER', payload: { name: user.name, email: user.email, bluegroups: user.bluegroups } })
+        if (!state.user) dispatch({ type: 'USER', payload: { name: user.name, email: user.email, accessProfiles: user.accessProfiles } })
         if (!state.namespaces)
             dispatch({
                 type: 'NAMESPACES',
